@@ -1,9 +1,12 @@
 package com.example;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,6 +21,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.google.common.collect.Iterables;
 
 public class RozetkaTest {
+	
+	public static final class OsUtils {
+		
+	   private static String OS = null;
+	   
+	   public static String getOsName() {
+	      if(OS == null) { OS = System.getProperty("os.name"); }
+	      return OS;
+	   }
+	   
+	   public static boolean isWindows() {
+	      return getOsName().startsWith("Windows");
+	   }
+	}
+	
 	private WebDriver driver = null;
 
 	// private static final String SERVER_URL =
@@ -29,7 +47,14 @@ public class RozetkaTest {
 
 	@Before
 	public void preinit() {
-		System.setProperty("webdriver.chrome.driver", "E:\\dev\\chromedriver.exe");
+	
+		String path = RozetkaTest.class.getClassLoader().getResource("chromedriver").getPath();
+		String osRelatedChromeDriverPath = (OsUtils.isWindows()) ? StringUtils.removeStart(path,"/") + ".exe" : path;
+		System.out.println(osRelatedChromeDriverPath);
+		if( !new File(osRelatedChromeDriverPath).exists()){
+			System.out.println("File is not exist with path " + osRelatedChromeDriverPath);
+		}
+		System.setProperty("webdriver.chrome.driver",osRelatedChromeDriverPath );
 		this.driver = new ChromeDriver();
 		driver.get("https://my.rozetka.com.ua");
 	}
@@ -421,13 +446,7 @@ public class RozetkaTest {
 		driver.findElement(By.className("comparison-one-goods")).isDisplayed();
 
 	}
-}
 
-// public class RozetkaTest {
 
-// public static void main(String[] args) {
-// TODO Auto-generated method stub
 
-// }
-
-// }
+ }

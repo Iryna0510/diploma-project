@@ -1,0 +1,16 @@
+testsPOM\TestAutoLogin.class
+com\example\LoginTestWithGenerics.class
+com\example\login\FBLoginType.class
+com\example\login\BaseLoginType.class
+lambdaexpressions\LambdaExample.class
+testsPOM\NoPOMTestAutoLogin.class
+com\example\login\BaseLogin.class
+forPOM\AutoHomePage.class
+com\example\login\VKLoginType.class
+com\example\VchenaRadaTests.class
+forPOM\AutoLogin.class
+pageFactory\AutoLoginFactory.class
+testsPOM\TestAutoLoginWithPageFactory.class
+pageFactory\AutoHomePageFactory.class
+equivalenceclasses\EquivalenceClasses.class
+com\example\DepartmentSiteTest.class
