@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.example.JUnitTestSuite
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.837 sec <<< FAILURE! - in com.example.JUnitTestSuite
-com.example.SampleJUnitTest  Time elapsed: 0.834 sec  <<< ERROR!
-java.lang.NullPointerException
-
